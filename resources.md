@@ -11,4 +11,6 @@
 1. [CRACKING the CODING INTERVIEW](http://www.crackingthecodinginterview.com/) Gayle Laakmann McDowell
 2. [careercup](https://careercup.com/)
 3. [The HackerRank Interview Preparation Kit](https://www.hackerrank.com/interview/interview-preparation-kit)
+4. [Dynamic programming (The Agile Warrior)](https://agilewarrior.wordpress.com/tag/algorithms/)
+5. [Overlapping Subproblems Property in Dynamic Programming | DP-1](https://www.geeksforgeeks.org/overlapping-subproblems-property-in-dynamic-programming-dp-1/)
 
