@@ -1,14 +1,24 @@
 package com.generic;
 
+/**
+ * Dynamic programming with memoization (example - fibonacci series)
+ * 
+ * Time comparison of both examples with and without memoization is done in the
+ * example.
+ */
 public class Fibonacci {
 
 	public static void main(String[] args) {
 		//long start = System.nanoTime();
 		//long timeElapsed = System.nanoTime() - start;
 		
-		int n = 4;
+		int n = 100;
 		System.out.format("\nfib %d => %d", n, fib(n));
 		System.out.format("\nfibWithMemo %d => %d", n, fibWithMemo(n, new int[n+1]));
+
+//		n = 10;
+//		System.out.format("\nfib %d => %d", n, fib(100));
+		
 		
 		// Performance test of non-memoized and memoized solutions
 		n = 10;
@@ -31,7 +41,7 @@ public class Fibonacci {
 		} else if (n == 1) {
 			return 1;
 		} else {
-			return fib(n-1) + fib(n-2);
+			return (fib(n-1) + fib(n-2));
 		}
 	}
 
