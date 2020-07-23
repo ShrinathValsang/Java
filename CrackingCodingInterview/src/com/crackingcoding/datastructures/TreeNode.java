@@ -1,4 +1,4 @@
-package com.datastructures.impls;
+package com.crackingcoding.datastructures;
 
 /**
  * Simple implementation of data structure Binary Search Tree.

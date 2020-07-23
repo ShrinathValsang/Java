@@ -1,4 +1,4 @@
-package com.generic;
+package com.crackingcoding.problems;
 
 /**
  * Dynamic programming with memoization (example - count no of paths)

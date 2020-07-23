@@ -2,8 +2,7 @@
 # java-algorithms
 
 ## You are at
-A generic collection of algorithms and data structure implementations by Gayle Laakmann McDowell in a series on YouTube as 'Cracking the Coding Interview Tutorial Series'. It contains 33 videos focused on different algorithms, strategies on how to solve them, sorting mechanisms and sample Java implementations.
-This is an effort is just collect all the implementations at one place.
+This is an effort to collect all the Java related coding test problems and solutions at one place.
 
 
 ## Contents

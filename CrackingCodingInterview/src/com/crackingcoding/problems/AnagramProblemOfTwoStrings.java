@@ -1,14 +1,15 @@
 package com.crackingcoding.problems;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 /**
  * Given two strings the class returns how many characters do we need 
  * to remove from either to make them anagrams.
  * 
  * e.g. HELLO and BILLION - HE--- and BI--I-N = 6 letters
+ * 
+ * 
+ * https://www.youtube.com/watch?v=eXWjCgbL01U
  *
  */
 public class AnagramProblemOfTwoStrings {
@@ -18,7 +19,11 @@ public class AnagramProblemOfTwoStrings {
 	 * 
 	 * If we want to consider more number of characters other than just 
 	 * alphabets, we can choose HashMaps for storing characters and their
-	 * number of occurrence in a string. 
+	 * number of occurrence in a string.
+	 * 
+	 * 
+	 * https://www.youtube.com/watch?v=3MwRGPPB4tw
+	 * 
 	 */
 	private static final int CHARACTERS = 26;
 
@@ -42,7 +47,7 @@ public class AnagramProblemOfTwoStrings {
 	private static int[] getCharCounts(String first) {
 		int[] arr = new int[CHARACTERS];
 	
-		for (int i=0; i<first.length(); i++) {
+		for (int i = 0; i < first.length(); i++) {
 			char c = first.charAt(i);
 			int p = c - 'a';
 			arr[p]++;
@@ -55,7 +60,7 @@ public class AnagramProblemOfTwoStrings {
 		if (charCounts1.length != charCounts2.length) return -1;
 		
 		int delta = 0;
-		for (int j=0; j < charCounts1.length; j++) {
+		for (int j = 0; j < charCounts1.length; j++) {
 			int diff = Math.abs(charCounts1[j] - charCounts2[j]);
 			delta += diff;
 		}

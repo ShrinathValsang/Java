@@ -1,4 +1,4 @@
-package com.generic;
+package com.crackingcoding.problems;
 
 public class CountThePaths {
 
