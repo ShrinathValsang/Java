@@ -20,7 +20,8 @@ public class LinkedListGenericImpl<T> {
 		T t;
 		Node<T> next;
 		
-		Node(T value, Node<T> next) {
+		// Node(T value, Node<T> next) {
+		Node(T value, Node<T> next) { // is this valid to provide next ele ??
 			this.t = value;
 			this.next = next;
 		}
