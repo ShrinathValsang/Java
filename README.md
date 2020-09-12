@@ -1,5 +1,5 @@
 
-# java-algorithms
+# Java
 
 ## You are at
 This is an effort to collect all the Java related coding test problems and solutions at one place.
