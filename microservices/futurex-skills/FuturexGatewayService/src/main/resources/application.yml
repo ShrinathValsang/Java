@@ -1,0 +1,24 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: futurex-gateway-service
+  cloud:
+    gateway:
+      discovery:
+          locator:
+            enabled: true
+      routes:
+        - id: orders
+          uri: http://localhost:8091/
+          predicates:
+            - Path=/customer/**
+  #      - id: payments
+  #        uri: /payment-service
+  #        predicates:
+  #         - Path=/restaurant/**
+
+#eureka:
+#  client:
+#    serviceURL:
+#      defaultZone: http://localhost:8761/eureka
