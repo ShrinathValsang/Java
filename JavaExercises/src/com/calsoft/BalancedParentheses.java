@@ -20,7 +20,29 @@ public class BalancedParentheses {
 		System.out.println("[(]) : " + iBalanced("[(])"));
 		System.out.println("{[]}(}) : " + iBalanced("{[]}(})"));
 	}
-	
+
+	public boolean isValid00(String s) {
+		// the string contains only parentheses and no other characters!
+		char[] arr = s.toCharArray();
+		Deque<Character> stack = new ArrayDeque<>();
+
+		for (char c : arr) {
+			if (c == '(' || c == '[' || c =='{') {
+				stack.push(c);
+			} else {
+				if (!stack.isEmpty()) return false;
+
+				char pop = stack.peek();
+				if (pop == '(' && c == ')' || pop == '[' && c == ']' ||pop == '{' && c == '}') {
+					stack.pop();
+				} else return false;
+			}
+		}
+
+		return stack.isEmpty();
+	}
+
+	// incorrect! doesn't handle one scenario
 	public static boolean iBalanced(String str) {
 		Deque<Character> deque = new ArrayDeque<>();
 		

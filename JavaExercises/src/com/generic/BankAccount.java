@@ -1,4 +1,4 @@
-package com.modernjava.examples.realexample;
+package com.generic;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
