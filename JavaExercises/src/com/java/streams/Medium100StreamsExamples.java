@@ -19,6 +19,7 @@ import java.util.stream.Stream;
 
       // https://medium.com/@bhangalekunal2631996/100-java-streams-interview-questions-with-solutions-and-outputs-2afb0713ceec
       public static void main(String... args) throws IOException {
+
           List<Integer> numbers = IntStream.range(1,6).boxed().toList();
 
           ConcurrentHashMap map;

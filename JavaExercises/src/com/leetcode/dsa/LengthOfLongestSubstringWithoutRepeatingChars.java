@@ -160,7 +160,7 @@ public class LengthOfLongestSubstringWithoutRepeatingChars {
         return maxl;
     }
 
-    public static String getLongestSubstringMyIf(String s) {
+    public static String getLongestSubstringByIf(String s) {
         int start = 0, left = 0, maxl = 0;
         Set<Character> seen = new HashSet<>();
 
@@ -184,7 +184,7 @@ public class LengthOfLongestSubstringWithoutRepeatingChars {
         return s.substring(start, start + maxl);
     }
 
-    public static String getLongestSubstringMyWhile(String s) {
+    public static String getLongestSubstringByWhile(String s) {
         int start = 0, left = 0, maxl = 0;
         Set<Character> seen = new HashSet<>();
 
