@@ -109,8 +109,11 @@ public class LongestSubstring {
         for (; right < s.length(); right++) {
             char c = s.charAt(right);
 
-            if (map.containsKey(c) && map.get(c) >= left) {
-                left = map.get(c) + 1;
+            Integer previousIndex = map.get(c);
+            // if map contains c AND has the previous occurrence of this character occurred inside the current window
+            // if (map.containsKey(c) && map.get(c) >= left) {
+            if (previousIndex != null && previousIndex >= left) {
+                left = previousIndex + 1;
             }
             map.put(c, right);
 
@@ -118,7 +121,6 @@ public class LongestSubstring {
                 maxl = right - left + 1;
                 start = left;
             }
-
         }
 
         return s.substring(start, start + maxl);
