@@ -15,12 +15,15 @@ public class BalancedBrackets {
 	
 	public boolean validateStringBrackets(String s) {
 		Deque<Character> deque = new LinkedList<>();
-		
+
+		// For add, remove and get
+		// either use - offerFirst, pollFirst, peekFirst -- returns special value (null or false)
+		// or addFirst, removeFirst, getFirst -- throws exception
 		for (char ch : s.toCharArray()) {
 			if (ch == '{' || ch == '[' || ch == '(') {
 				deque.addFirst(ch);
 			} else {
-				if (!deque.isEmpty() && isBracketMatch(deque.peekFirst(), ch)) {
+				if (!deque.isEmpty() && isBracketMatch(deque.getFirst(), ch)) {
 					deque.removeFirst();
 				} else {
 					return false;
@@ -39,7 +42,7 @@ public class BalancedBrackets {
 	
 	public boolean isBalanced(String s) {
 		while (s.contains("{}") || s.contains("[]") || s.contains("()")) {
-			s = s.replaceAll(s, s);
+			s = s.replaceAll(s, "");
 		}
 		
 		return false;

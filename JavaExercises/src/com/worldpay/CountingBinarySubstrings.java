@@ -35,6 +35,8 @@ public class CountingBinarySubstrings {
 		s = "01";
 		List<String> result1 = printBinarySubstrings(s);
 		System.out.println(result1);
+		s = "011001";
+		System.out.println("countBinarySubstrings(" + s + ") -- " + countBinarySubstrings(s));
 	}
 	
 	public static int countBinarySubstrings(String s) {

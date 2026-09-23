@@ -31,7 +31,10 @@ public class Java8StreamsSimpleExamples {
 		List<Integer> original = IntStream.of(arr).boxed().collect(Collectors.toList());
 		List<Integer> original1 = IntStream.of(arr).boxed().collect(Collectors.toCollection(ArrayList::new));
 		System.out.println("Input array: " + original);
-		
+
+
+
+
 		// Q1. Separate odd and even numbers.
 		System.out.println("Separate odd and even numbers.");
 		Map<Boolean, List<Integer>> map0 = Arrays.stream(arr).boxed().collect(Collectors.partitioningBy(i -> i % 2 == 0));
@@ -277,7 +280,19 @@ public class Java8StreamsSimpleExamples {
 		
 		coll.forEach(entry -> System.out.println(entry.getKey() + " " + entry.getValue()));
 		
-		
+
+		// 3rd highest occurring element
+		List<Integer> list = List.of(1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5);
+
+		list.stream().collect(
+				Collectors.groupingBy(
+						e -> e, //Function.identity(),
+						//Collections.frequency(list, e)
+						Collectors.counting()
+				)).entrySet().stream()
+				//.sorted(Comparator.comparingLong(Map.Entry::getValue));
+				.sorted(Map.Entry.<Integer, Long>comparingByValue().reversed())
+				.skip(2).findFirst().map(Map.Entry::getKey);
 	}
 
 }

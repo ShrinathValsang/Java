@@ -49,11 +49,11 @@ public class LongestStringFromArrayOfStrings {
 		
 		Arrays.sort(arr, (s1, s2) -> (s1.length() > s2.length()) ? 1 : (s1.length() < s2.length() ? -1 : 0));
 		
-		OUTER : for (int i = size-1; i > 1; i--) {
+		OUTER : for (int i = size - 1; i > 1; i--) {
 			StringBuilder s = new StringBuilder(arr[i]);
 			int ind = 0;
 			
-			for (int j = i-1; j >= 0; j--) {
+			for (int j = i - 1; j >= 0; j--) {
 				String sub = arr[j];
 				int subl = sub.length(); // substring length
 				
@@ -71,8 +71,8 @@ public class LongestStringFromArrayOfStrings {
 		return longestString;
 	}
 	
-	// latest from copilor 25th Sept 2025 -- above code optimized
-	private static String getLongestStringCreatedFromOtherArrayStringsNew(String[] arr) {
+	// latest from copilot  25th Sept 2025 -- above code optimized
+	public static String getLongestStringCreatedFromOtherArrayStringsNew(String[] arr) {
 		if (arr.length < 2) return "";
 		
 		//Arrays.sort(arr, (s1, s2) -> (s1.length() > s2.length()) ? 1 : (s1.length() < s2.length() ? -1 : 0));
