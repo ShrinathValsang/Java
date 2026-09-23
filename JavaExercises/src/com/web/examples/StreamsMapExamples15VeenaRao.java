@@ -39,6 +39,13 @@ public class StreamsMapExamples15VeenaRao {
 		
 		// 1. Group the Employees by city.
 		Map<String, List<Employee>> map = empList.stream().collect(Collectors.groupingBy(Employee::getCity, Collectors.toList()));
+		map.forEach((k,v) -> System.out.println("key: " + k + ", val: " + v));
+
+		Map<String, List<Employee>> empsByDeptt = empList.stream().filter(emp -> emp.getSalary() > 1000).collect(Collectors.groupingBy(Employee::getDeptName));
+		System.out.println("\n0. Filter employees having salary greater than 100o and group the Employees by department.");
+		//empsByDeptt.forEach((k,v) -> System.out.println("key: " + k + ", val: " + v));
+		System.out.println("empsByDeptt: " + empsByDeptt);
+
 		Map<String, List<String>> map1 = empList.stream().collect(Collectors.groupingBy(Employee::getCity, Collectors.mapping(Employee::getName, Collectors.toList())));
 		System.out.println("\n1. Group the Employees by city.");
 		map1.forEach((k,v) -> System.out.println("key: " + k + ", val: " + v));

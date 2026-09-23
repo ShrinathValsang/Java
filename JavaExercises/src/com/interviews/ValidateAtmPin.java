@@ -1,5 +1,8 @@
 package com.interviews;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 // TestGorilla - ADCB 20-Sep-2026
 public class ValidateAtmPin {
     public static void main(String[] args) {
@@ -23,6 +26,12 @@ public class ValidateAtmPin {
         };
 
         for (String pin : pins) {
+            int[] arr = pin.chars().map(i -> i - '0').toArray();
+            System.out.println(Arrays.toString(arr));
+
+            // pin.chars().map(i -> i - '0').collect(Collectors.toList()); -- compilation error
+            // Remember - IntStream is not the same as Stream<Integer>, IntStream is stream of primitive int values
+
             System.out.println(pin + " -> " + validateAtmPin(pin));
         }
     }
@@ -76,6 +85,16 @@ public class ValidateAtmPin {
         return false;
     }
 
+    // Using
+    // pin.charAt(i - 1) - '0'
+    // is much simpler compared to
+    // Integer.parseInt(String.valueOf(pin.charAt(i))
+    // or
+    // Character.digit(pin.charAt(i), 10)
+    //
+    //              boxed()
+    // IntStream ──────────────→ Stream<Integer>
+    // 
     private static boolean isPinSequential(String pin) {
         boolean ascending = true;
         boolean descending = true;
@@ -92,6 +111,8 @@ public class ValidateAtmPin {
             int previous = pin.charAt(i - 1) - '0';
             int current = pin.charAt(i) - '0';
 
+            // As the pin is already validate to contain digits only, this also works!
+            // if (pin.charAt(i) != pin.charAt(i - 1) + 1) -- '1' + 1 = '2', '3' - 1 = '2' etc.
             if (current != previous + 1) {
                 ascending = false;
             }

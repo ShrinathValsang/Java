@@ -17,13 +17,71 @@ class SortAndPartitionArray {
         int[] result = new SortAndPartitionArray().sortAndPartitionArray2(arr);
 
         System.out.println("result: " + Arrays.toString(result));
+
+
+
+        // Given I/P ->
+        int [] input = { 23, 0, 12, 0, 67, 0, 9 , 0 };
+        // Expected o/p -> { 0, 0, 0, 0, 23, 12, 67, 9 }
+
+        System.out.println("Input: " + Arrays.toString(input));
+        System.out.println("Partition without sorting: " + Arrays.toString(partitionArrayWithLeadingZeros(input)));
+        System.out.println("Partition with sorting:    " + Arrays.toString(sortAndPartitionArray(input)));
+    }
+
+    // Place the zeros first and then the non-zero elements unsorted
+    public static int[] partitionArrayWithLeadingZeros(int[] input) {
+        return Arrays.stream(input)
+                .boxed()
+                .sorted((a, b) -> {
+                    if (a == 0 && b != 0) return -1; // a before b
+                    if (b == 0 && a != 0) return 1; // a before b
+                    return 0; // default
+                })
+                .mapToInt(Integer::intValue)
+                .toArray();
+    }
+
+    public static int[] sortAndPartitionArray(int[] input) {
+        return Arrays.stream(input)
+                .boxed()
+                .sorted((a, b) -> {
+                    if (a == 0 && b != 0) return -1;
+                    if (a != 0 && b == 0) return 1;
+                    return Integer.compare(a, b);
+                })
+                .mapToInt(Integer::intValue)
+                .toArray();
+        //return new int[0];
+    }
+
+    // Two-pointer approach to solve the sort and partition array problem
+    public static int[] sortAndPartitionArrayTwoPointer(int[] input) {
+        int left = 0, right = input.length - 1;
+
+        while (left < right) {
+            while (left < right && input[left] == 0) left++;
+            while (left < right && input[right] != 0) right--;
+
+            // This will work but order of non-zero elements won't be maintained!
+            // if we want to preserve order swap technique cannot be used.
+            // Output -- [0, 0, 0, 0, 67, 12, 9, 23]
+            if (left < right) {
+                int temp = input[right];
+                input[right] = input[left];
+                input[left] = temp;
+                left++; right--;
+            }
+        }
+
+        return input;
     }
 
     // 2. Given an array containing 0s and numbers, arrange the non-zero numbers in ascending order and move all 0s to the right.
     // Input: [5,0,2, 0,1,3,0,4,1,2]
     // Output: [1,1,2,2,3,4,5,0,0,0]
     // Explain the approach and logic used in the solution.
-    public int[] sortAndPartitionArray(int[] arr) {
+    public int[] sortAndPartitionArray1(int[] arr) {
         return Arrays.stream(arr)
                 .boxed()
                 .sorted((a, b) -> {
